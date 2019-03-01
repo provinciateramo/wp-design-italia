@@ -1,7 +1,13 @@
-  <div class="card">
+<div class="card-space">
+  <div class="card card-bg card-img no-after">
     @if (has_post_thumbnail())
-
-          <img class="card-img-top" src="{{Single::archive_featured_image()}}" title="img title" alt="imagealt">
+    <div class="img-responsive-wrapper">
+      <div class="img-responsive">
+        <div class="img-wrapper">
+          <img src="{{Single::archive_featured_image()}}" title="img title" alt="imagealt">
+        </div>
+      </div>
+    </div>
     @endif
     <div class="card-body">
      <article id="post-@php the_ID() @endphp" @php post_class() @endphp>
@@ -23,4 +29,4 @@
       </article>
     </div>
   </div>
-
+</div>
