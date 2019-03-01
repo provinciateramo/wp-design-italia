@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Gianluca Di Carlo <gianluca.dicarlo@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 2.1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it_IT\n"
+
+#: admin.php:4
+msgid "thumbnail"
+msgstr "Miniatura"
+
+#: admin.php:4
+msgid "medium"
+msgstr "Medio"
+
+#: admin.php:4
+msgid "medium_large"
+msgstr "Medio grande"
+
+#: admin.php:4
+msgid "large"
+msgstr "Grande"
