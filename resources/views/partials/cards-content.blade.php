@@ -1,5 +1,5 @@
 <div class="card-wrapper card-space p-2">
-  <div class="card card-bg card-img no-after">
+  <div class="card card-bg card-img no-after" id="post-@php the_ID() @endphp">
     @if (has_post_thumbnail())
     <div class="img-responsive-wrapper">
       <div class="img-responsive">
@@ -10,13 +10,7 @@
     </div>
     @endif
     <div class="card-body">
-     <article id="post-@php the_ID() @endphp" @php post_class() @endphp>
-       <header>
-         <div class="category-top">
-        @include('partials/entry-meta')
-         </div>
-         <h5 class="card-title"><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h5>
-       </header>
+       <h5 class="card-title"><a href="{{ get_permalink() }}">{{ get_the_title() }}</a></h5>
        <p class="card-text">
           @php the_excerpt() @endphp
         </p>
@@ -26,7 +20,10 @@
            <use xlink:href="{{ \App\asset_path('bootstrap-italia/svg/sprite.svg') }}#it-arrow-right"></use>
          </svg>
        </a>
-      </article>
+       <div class="it-card-footer2 mt-3">
+         {!! \app\Controllers\Category::category_links() !!}
+       </div>
+
     </div>
   </div>
 </div>

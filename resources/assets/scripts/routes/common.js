@@ -1,6 +1,8 @@
+import Bricklayer from 'bricklayer/dist/bricklayer.min';
 
 export default {
   init() {
+
     // JavaScript to be fired on all pages
 
       $(window).on("scroll touchmove",function(){
@@ -34,7 +36,12 @@ export default {
 
       $("div.cb-main input[type='checkbox']").click(function() {
         $(this).parents('.col').find(':not(div.cb-main) input[type=\'checkbox\']').prop("checked",$(this).is(':checked'));
-      })
+      });
+      //var bricklayer = null;
+      var bricklayerEl = document.querySelector('.bricklayer');
+      if (bricklayerEl)
+        new Bricklayer(document.querySelector('.bricklayer'));
+
 
   },
   finalize() {
