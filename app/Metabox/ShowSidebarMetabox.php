@@ -17,14 +17,16 @@ class ShowSidebarMetabox extends BaseMetabox
         $post_types = get_post_types();
 
         foreach ( $post_types as $post_type ) {
-            add_meta_box(
-                'sidebar_meta_box',
-                __( 'Barra laterale', 'sidebar_show_settings' ),
-                array( $this, 'meta_box_content' ),
-                $post_types,
-                'advanced',
-                'default'
-            );
+            if (in_array($post_type, \App\WPDI_CPT\WpdiCpt::$wpdi_cpt)) {
+                add_meta_box(
+                    'sidebar_meta_box',
+                    __( 'Barra laterale', 'sidebar_show_settings' ),
+                    array( $this, 'meta_box_content' ),
+                    $post_type,
+                    'advanced',
+                    'default'
+                );
+            }
         }
 
     }
@@ -38,7 +40,6 @@ class ShowSidebarMetabox extends BaseMetabox
         $current_sidebar = get_post_meta( $post->ID, '_sidebar_current', true ) || 'primary-sidebar';
         // retrieve the _food_carbohydrates current value
         $show_sidebar = boolval(get_post_meta( $post->ID, '_sidebar_show', true )!='' ? get_post_meta( $post->ID, '_sidebar_show', true ) : 1);
-        echo var_dump($show_sidebar);
         $sidebars = $GLOBALS['wp_registered_sidebars'];
 
         ?>

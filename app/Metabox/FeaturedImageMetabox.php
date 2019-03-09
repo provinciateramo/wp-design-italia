@@ -17,7 +17,7 @@ class FeaturedImageMetabox extends BaseMetabox
         $post_types = get_post_types();
 
         foreach ( $post_types as $post_type ) {
-
+            if (in_array($post_type, \App\WPDI_CPT\WpdiCpt::$wpdi_cpt)) {
             add_meta_box(
                 'featured_image_meta_box',
                 __( 'Immagine in evidenza', 'wpdi' ),
@@ -26,6 +26,7 @@ class FeaturedImageMetabox extends BaseMetabox
                 'advanced',
                 'low'
             );
+            }
         }
 
     }

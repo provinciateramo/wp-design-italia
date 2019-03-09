@@ -334,4 +334,4 @@ add_action('init',function () {
     add_editor_style(asset_path("bootstrap-italia/css/italia-icon-font.css"));
 });
 
-$wpdi_cpt = new wpdi_custom_post_types();
+

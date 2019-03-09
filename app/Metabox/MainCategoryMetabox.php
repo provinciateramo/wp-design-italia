@@ -5,9 +5,8 @@
  * Date: 27/02/19
  * Time: 8.06
  */
-
+namespace App;
 namespace App\Metabox;
-
 
 class MainCategoryMetabox extends BaseMetabox
 {
@@ -15,17 +14,17 @@ class MainCategoryMetabox extends BaseMetabox
 
         // Retrieve all post types and add meta box to all post types, including custom post types
         $post_types = get_post_types();
-
         foreach ( $post_types as $post_type ) {
-
-            add_meta_box (
-                'main_category',
-                __( 'Categoria Principale', 'wpdi' ),
-                array( $this, 'meta_box_content' ),
-                $post_type,
-                'side',
-                'high'
-            );
+            if (in_array($post_type, \App\WPDI_CPT\WpdiCpt::$wpdi_cpt)) {
+                add_meta_box (
+                    'main_category',
+                    __( 'Categoria Principale', 'wpdi' ),
+                    array( $this, 'meta_box_content' ),
+                    $post_type,
+                    'side',
+                    'high'
+                );
+            }
 
         }
 
