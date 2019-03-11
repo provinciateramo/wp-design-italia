@@ -69,36 +69,39 @@ class WpdiCpt
     private $custom_cpt_setting = array();
     public static $wpdi_cpt = array();
 
-    public function __construct($name, $singular_name, $plural_name, $description, $icon, $use_metaboxes=false, $supports = false, $labels = false ) {
+    public function __construct($name, $singular_name, $plural_name, $description, $icon, $use_metaboxes=false, $cpt_settings = false, $labels = false ) {
 
         global $default_cpt_labels, $default_cpt_settings;
 
+        if ($cpt_settings) {
+            $this->custom_cpt_setting = array_replace($this->custom_cpt_setting, $cpt_settings);
+        }
+        else {
+            $this->custom_cpt_setting = $default_cpt_settings;
+            $this->custom_cpt_setting['label'] = __( $singular_name, 'wpdi' );
+            $this->custom_cpt_setting['description'] = __( $description, 'wpdi' );
+        }
 
         if ($labels)
-            array_replace($this->custom_labels, $labels);
-        else
+            $this->custom_labels = array_replace($this->custom_labels, $labels);
+        else {
             $this->custom_labels = $default_cpt_labels;
+            $this->custom_labels['archives'] =  __( "Archivio dei $plural_name", 'wporg' );
+            $this->custom_labels['all_items'] =  __( "Tutti i $plural_name", 'wporg' );
+            $this->custom_labels['add_new_item'] =  __( "Nuovo $singular_name", 'wporg' );
+            $this->custom_labels['view_items'] =  __( "Visualizza $plural_name", 'wporg' );
+            $this->custom_labels['search_items'] =  __( "Cerca $singular_name", 'wporg' );
+        }
 
         $this->custom_labels['name'] =  _x( $plural_name, 'Post Type General Name', 'wpdi' );
         $this->custom_labels['singular_name'] =  _x( $singular_name, 'Post Type Singular Name', 'wpdi' );
         $this->custom_labels['menu_name'] =  __( $singular_name, 'wpdi' );
         $this->custom_labels['name_admin_bar'] =  __( $singular_name, 'wpdi' );
-        $this->custom_labels['archives'] =  __( "Archivio dei $plural_name", 'wpdi' );
-        $this->custom_labels['all_items'] =  __( "Tutti i $plural_name", 'wpdi' );
-        $this->custom_labels['add_new_item'] =  __( "Nuovo $singular_name", 'wpdi' );
-        $this->custom_labels['view_items'] =  __( "Visualizza $plural_name", 'wpdi' );
-        $this->custom_labels['search_items'] =  __( "Cerca $singular_name", 'wpdi' );
         $this->use_metaboxes = $use_metaboxes;
         $this->cpt_icon = $icon;
         $this->cpt_name = $name;
 
-        //array_replace($this->custom_cpt_setting, $default_cpt_settings);
-        $this->custom_cpt_setting = $default_cpt_settings;
-        $this->custom_cpt_setting = $default_cpt_settings;
-        $this->custom_cpt_setting['label'] = __( $singular_name, 'wpdi' );
         $this->custom_cpt_setting['labels'] = $this->custom_labels;
-        $this->custom_cpt_setting['description'] = __( $description, 'wpdi' );
-        $this->custom_cpt_setting['supports'] = $supports ? $supports:$default_cpt_settings['supports'];
 
         add_action( 'init', array( $this, 'add_cpt' ), 0 );
 

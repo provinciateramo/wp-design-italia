@@ -8,9 +8,9 @@
 
 namespace App;
 namespace App\WPDI_CPT;
+global $default_cpt_settings;
 
 $cpt_comunicati = new WpdiCpt('comunicato','Comunicato', 'Comunicati',
     'Comunicato Stampa','it-file', true);
 
-$cpt_organigramma = new WpdiCpt('organigramma','Organigramma', 'Organigrammi',
-    'Organigramma dell\'ente','it-pa');
+
