@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-12">
         <div class="it-hero-text-wrapper bg-dark">
-          <span class="it-category"><?php the_category( ', ' ); ?></span>
+          <span class="it-category"><?php the_category(', '); ?></span>
           <h1 class="no_toc">{!! get_the_title() !!}</h1>
           <p class="d-none d-lg-block"><time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time></p>
             @if (App::show_author())

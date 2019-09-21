@@ -6,8 +6,15 @@
     <div id="wrapper" class="hfeed">
       @php do_action('get_header') @endphp
       @include('partials.it-header')
-      <section id="content" role="main" class="container">
-        <div class="wrap container" role="document">
+      <section id="content" role="main">
+        <div class="wrap container px-4 my-4" role="document">
+          @if ( is_singular() )
+            <div class="row">
+              <div class="col px-lg-4">
+               {!!  App::wp_breadcrumb() !!}
+              </div>
+            </div>
+          @endif
           <div class="row">
             <div class="{!! App\wpdi_content_class() !!}">
               @yield('content')

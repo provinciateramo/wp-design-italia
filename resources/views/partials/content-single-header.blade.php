@@ -32,48 +32,7 @@
       </button>
       <div class="dropdown-menu shadow-lg" aria-labelledby="shareActions">
         <div class="link-list-wrapper">
-          <ul class="link-list">
-            <li>
-              <a class="list-item" href="#">
-                <svg class="icon">
-                  <use
-                          xlink:href="{{ \App\asset_path('bootstrap-italia/svg/sprite.svg') }}#it-facebook"
-                  ></use>
-                </svg>
-                <span>Facebook</span>
-              </a>
-            </li>
-            <li>
-              <a class="list-item" href="#">
-                <svg class="icon">
-                  <use
-                          xlink:href="{{ \App\asset_path('bootstrap-italia/svg/sprite.svg') }}#it-twitter"
-                  ></use>
-                </svg>
-                <span>Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a class="list-item" href="#">
-                <svg class="icon">
-                  <use
-                          xlink:href="{{ \App\asset_path('bootstrap-italia/svg/sprite.svg') }}#it-linkedin"
-                  ></use>
-                </svg>
-                <span>Linkedin</span>
-              </a>
-            </li>
-            <li>
-              <a class="list-item" href="#">
-                <svg class="icon">
-                  <use
-                          xlink:href="{{ \App\asset_path('bootstrap-italia/svg/sprite.svg') }}#it-whatsapp"
-                  ></use>
-                </svg>
-                <span>Whatsapp</span>
-              </a>
-            </li>
-          </ul>
+          {!! $show_social_link !!}
         </div>
       </div>
     </div>
@@ -143,7 +102,7 @@
 
     <div class="mt-4 mb-4">
       <h6><small>Argomenti</small></h6>
-      {!! App::chip_categories() !!}
+      {!! $chip_categories !!}
     </div>
 
   </div>
