@@ -19,5 +19,13 @@ use Sober\Controller\Controller;
  * @package App\Controllers
  */
 class FrontPage extends Controller {
-
+	/**
+	 * @param bool $id
+	 *
+	 * @return string
+	 */
+	public function chip_categories( $id = false ) {
+		$html = '';
+		return $html;
+	}
 }
