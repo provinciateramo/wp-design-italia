@@ -1,7 +1,7 @@
-<aside class="col-lg-4" style="position: relative;">
-	<div class="sticky-wrapper navbar-wrapper" style="">
+<aside class="col-lg-4">
+	<div class="sticky-wrapper navbar-wrapper">
 		<nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
-			<button class="custom-navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarNav"><span class="it-list"></span>Descrizione</button>
+			<button class="custom-navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-target="#navbarNav"><span class="it-list"></span>Indice della pagina</button>
 			<div class="navbar-collapsable" id="navbarNav">
 				<div class="overlay"></div>
 				<div class="close-div sr-only">
@@ -17,9 +17,7 @@
 				<div class="menu-wrapper">
 					<div class="link-list-wrapper menu-link-list">
 						<h3 class="no_toc">Indice della pagina</h3>
-
 						<?php echo do_shortcode('[ez-toc]'); ?>
-
 					</div>
 				</div>
 			</div>

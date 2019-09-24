@@ -4,7 +4,7 @@
     <div class="img-responsive-wrapper">
       <div class="img-responsive">
         <div class="img-wrapper">
-          <img src="{{Single::archive_featured_image()}}" title="img title" alt="imagealt">
+          <img src="{{Singular::archive_featured_image()}}" title="img title" alt="imagealt">
         </div>
       </div>
     </div>
