@@ -219,6 +219,48 @@ add_action(
 	}
 );
 
+//hook into the init action and call create_book_taxonomies when it fires.
+add_action(
+	'init',
+	function () {
+
+		// Add new taxonomy, make it hierarchical like categories
+		//first do the translations part for GUI.
+
+		$labels = array(
+			'name'              => _x( 'Sezioni di pubblicazioni', 'wppa' ),
+			'singular_name'     => _x( 'Sezione di pubblicazione', 'wppa' ),
+			'search_items'      => __( 'Cerca sezioni di pubblicazioni', 'wppa' ),
+			'all_items'         => __( 'Tutte le sezioni di pubblicazione', 'wppa' ),
+			'parent_item'       => __( 'Sezione genitore', 'wppa' ),
+			'parent_item_colon' => __( 'Sezione genitore:', 'wppa' ),
+			'edit_item'         => __( 'Modifica Sezione di pubblicazione', 'wppa' ),
+			'update_item'       => __( 'Aggiorna  Sezione di pubblicazione', 'wppa' ),
+			'add_new_item'      => __( 'Aggiungi nuova Sezione di pubblicazione', 'wppa' ),
+			'new_item_name'     => __( 'Nuova Sezione di pubblicazione', 'wppa' ),
+			'menu_name'         => __( 'Sezioni di pubblicazione', 'wppa' ),
+		);
+
+		// Now register the taxonomy.
+
+		register_taxonomy( 'sezioni', array( 'post', 'page' ), array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_menu'      => true,
+			'show_in_rest'      => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'topic' ),
+			'capabilities'      => array(
+				'assign_terms' => 'manage_options',
+				'edit_terms'   => 'god',
+				'manage_terms' => 'god',
+			),
+		),10000 );
+	}
+);
+
 /* we could also add the word 'any' as a new WP_Query var, but it's always better to control each one of post_types */
 
 if ( ! is_admin() ) {
