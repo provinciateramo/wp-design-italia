@@ -11,8 +11,8 @@ namespace App\WPDI_CPT;
 
 global $default_cpt_settings;
 $taxonomy_servizi = array(
-	'name'   => 'servizi',
-	'data'   => array(
+	'name' => 'servizi',
+	'data' => array(
 		'hierarchical'      => true,
 		'show_ui'           => true,
 		'show_admin_column' => true,
@@ -25,18 +25,18 @@ $taxonomy_servizi = array(
 			'edit_terms'   => 'manage_options',
 			'manage_terms' => 'manage_options',
 		),
-		'labels' => array(
+		'labels'            => array(
 			'name'              => _x( 'Tipo di servzio', 'wppa' ),
-			'singular_name'     => _x( 'Sezione di pubblicazione', 'wppa' ),
-			'search_items'      => __( 'Cerca sezioni di pubblicazioni', 'wppa' ),
-			'all_items'         => __( 'Tutte le sezioni di pubblicazione', 'wppa' ),
-			'parent_item'       => __( 'Sezione genitore', 'wppa' ),
-			'parent_item_colon' => __( 'Sezione genitore:', 'wppa' ),
-			'edit_item'         => __( 'Modifica Sezione di pubblicazione', 'wppa' ),
-			'update_item'       => __( 'Aggiorna  Sezione di pubblicazione', 'wppa' ),
-			'add_new_item'      => __( 'Aggiungi nuova Sezione di pubblicazione', 'wppa' ),
-			'new_item_name'     => __( 'Nuova Sezione di pubblicazione', 'wppa' ),
-			'menu_name'         => __( 'Sezioni di pubblicazione', 'wppa' ),
+			'singular_name'     => _x( 'Tipo di servizio', 'wppa' ),
+			'search_items'      => __( 'Tipi di servizio', 'wppa' ),
+			'all_items'         => __( 'Tutti i tipo di servizio', 'wppa' ),
+			'parent_item'       => __( 'Tipo di servizio superiore', 'wppa' ),
+			'parent_item_colon' => __( 'Tipo di servizio superiore:', 'wppa' ),
+			'edit_item'         => __( 'Modifica Tipo di servizio', 'wppa' ),
+			'update_item'       => __( 'Aggiorna Tipo di servizio', 'wppa' ),
+			'add_new_item'      => __( 'Aggiungi nuovo Tipo di servizio', 'wppa' ),
+			'new_item_name'     => __( 'Nuovo Tipo di servizio', 'wppa' ),
+			'menu_name'         => __( 'Tipo di servizio', 'wppa' ),
 		),
 	),
 );
