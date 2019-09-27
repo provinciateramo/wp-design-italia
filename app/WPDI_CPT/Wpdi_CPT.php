@@ -107,6 +107,12 @@ class Wpdi_CPT {
 	 */
 	private $custom_labels = array();
 	/**
+	 * Tassonomia personalizzata per questo tipo di contenuto.
+	 *
+	 * @var array
+	 */
+	private $taxonomy = false;
+	/**
 	 * Impostazioni personalizzate per questo tipo di contenuto.
 	 *
 	 * @var array
@@ -132,8 +138,9 @@ class Wpdi_CPT {
 	 * @param array  $remove_supports Sezioni da disabilitare.
 	 * @param array  $cpt_settings Impostazioni particolari per questo tipo di contenuto.
 	 * @param array  $labels Etichette personalizzate per per questo tipo di contenuto.
+	 * @param array  $taxonomy Tassonomia personalizzata per per questo tipo di contenuto.
 	 */
-	public function __construct( $name, $singular_name, $plural_name, $description, $icon, $use_metaboxes = false, $use_gutenberg = false, $remove_supports = array(), $cpt_settings = false, $labels = false ) {
+	public function __construct( $name, $singular_name, $plural_name, $description, $icon, $use_metaboxes = false, $use_gutenberg = false, $remove_supports = array(), $cpt_settings = false, $labels = false, $taxonomy = false ) {
 
 		global $default_cpt_labels, $default_cpt_settings;
 
@@ -145,7 +152,8 @@ class Wpdi_CPT {
 			$this->custom_cpt_setting['description'] = __( $description, 'wpdi' );
 		}
 		$this->custom_cpt_setting['show_in_rest'] = $use_gutenberg;
-		$this->custom_cpt_setting['supports'] = array_diff($this->custom_cpt_setting['supports'], $remove_supports);
+		if ($remove_supports)
+			$this->custom_cpt_setting['supports'] = array_diff($this->custom_cpt_setting['supports'], $remove_supports);
 
 		if ( $labels ) {
 			$this->custom_labels = array_replace( $this->custom_labels, $labels );
@@ -167,7 +175,7 @@ class Wpdi_CPT {
 		$this->cpt_name                        = $name;
 
 		$this->custom_cpt_setting['labels'] = $this->custom_labels;
-
+        $this->taxonomy = $taxonomy;
 		add_action( 'init', array( $this, 'add_cpt' ), 0 );
 	}
 
@@ -178,6 +186,9 @@ class Wpdi_CPT {
 		register_post_type( $this->cpt_name, $this->custom_cpt_setting );
 		if ( $this->use_metaboxes ) {
 			array_push( self::$wpdi_cpt, $this->cpt_name );
+		}
+		if ($this->taxonomy) {
+			register_taxonomy($this->taxonomy['name'], array( $this->cpt_name,), $this->taxonomy['data'], 10);
 		}
 	}
 }
