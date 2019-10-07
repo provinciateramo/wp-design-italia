@@ -48,7 +48,7 @@
     "illuminate/support": "5.6.*",
     "roots/sage-lib": "~9.0.5",
     "soberwp/controller": "~2.1.0",
-    "provinciateramo/easy-table-of-contents"   
+    "provinciateramo/easy-table-of-contents": "dev-master"   
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.8.0",
