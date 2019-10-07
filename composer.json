@@ -40,7 +40,7 @@
         { 
             "type": "vcs",
             "url": "https://github.com/provinciateramo/easy-table-of-contents.git"
-        },
+        }
   ],
   "require": {
     "php": ">=7.1",
