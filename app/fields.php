@@ -62,7 +62,7 @@ function crb_attach_theme_options() {
 						Field::make( 'text', 'crb_cellulare', 'Cellulare' )
 							->set_attribute( 'pattern', '[0-9].[8,10]' )
 							->set_attribute( 'placeholder', '3219873321' ),
-					),
+					)
 				);
 	Container::make( 'post_meta', __( 'Ruolo' ) )
 				->where( 'post_type', '=', 'persona' )
@@ -85,7 +85,7 @@ function crb_attach_theme_options() {
 										'type'      => 'post',
 										'post_type' => 'ufficio',
 									),
-								),
+								)
 							)
 							->set_max( 1 ),
 						Field::make( 'association', 'crb_responsabile', 'Responsabile di' )
@@ -101,7 +101,7 @@ function crb_attach_theme_options() {
 										'type'      => 'post',
 										'post_type' => 'ufficio',
 									),
-								),
+								)
 							)
 							->set_max( 1 ),
 						Field::make( 'date', 'crb_data_conclusione_incarico', 'Data conclusione incarico' )
@@ -179,6 +179,14 @@ function crb_attach_theme_options() {
 						Field::make( 'file', 'crb_curricula', 'Curriculum vitae' )
 						->set_type(
 							array( 'application/pdf', 'application/p7m' )
+						),
+						Field::make( 'complex', 'crb_compensi' )
+						->add_fields(
+							array(
+								Field::make( 'text', 'title' ),
+								Field::make( 'text', 'importo' ),
+								Field::make( 'documento', 'file' ),
+							)
 						),
 					)
 				);
