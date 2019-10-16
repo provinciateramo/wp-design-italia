@@ -32,6 +32,7 @@
     "config": {
         "process-timeout": 600,
         "preferred-install": "dist",
+        "vendor-dir": "./vendor",
         "github-protocols": [
             "https"
         ]
@@ -47,25 +48,30 @@
     },
     "repositories": [
         {
-          "type": "composer",
-          "url": "https://wpackagist.org"
+            "type": "composer",
+            "url": "https://wpackagist.org"
         },
         {
-          "type": "vcs",
-          "url": "https://github.com/provinciateramo/easy-table-of-contents.git"
+            "type": "vcs",
+            "url": "https://github.com/provinciateramo/easy-table-of-contents.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/provinciateramo/easy-table-of-contents.git"
         }
     ],
     "require": {
         "php": ">=7.1",
         "composer/installers": "~1.0",
-        "illuminate/support": "5.6.*",
+        "illuminate/support": "^5.8.0",
         "roots/sage-lib": "~9.0.9",
         "soberwp/controller": "~2.1.0",
         "htmlburger/carbon-fields": "3.1.3",
         "wpackagist-plugin/kirki": "*",
         "wpackagist-plugin/reading-time-wp": "*",
         "wpackagist-plugin/regenerate-thumbnails": "*",
-        "provinciateramo/easy-table-of-contents": "dev-master"
+        "provinciateramo/easy-table-of-contents": "dev-master",
+        "provinciateramo/wp-design-italia": "dev-master"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.8.0",
@@ -73,7 +79,19 @@
         "phpmd/phpmd": "@stable",
         "friendsofphp/php-cs-fixer": "@stable",
         "composer/composer": "^1.8",
-        "phpunit/phpunit": "^8"
+        "phpunit/phpunit": "^8",
+        "wpackagist-plugin/customizer-export-import": "@stable"
+    },
+    "extra": {
+        "installer-paths": {
+            "../../app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "../../app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        },
+        "wordpress-install-dir": "../../web/wp"
     },
     "scripts": {
         "test": [
@@ -84,4 +102,3 @@
         ]
     }
 }
-
