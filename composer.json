@@ -70,7 +70,7 @@
         "wpackagist-plugin/kirki": "*",
         "wpackagist-plugin/reading-time-wp": "*",
         "wpackagist-plugin/regenerate-thumbnails": "*",
-        "provinciateramo/easy-table-of-contents": "dev-master",
+        "provinciateramo/easy-table-of-contents": "dev-master"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.8.0",
